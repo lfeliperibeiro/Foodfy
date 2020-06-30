@@ -232,14 +232,14 @@ footer p {
   margin-bottom: 23px;
 }
 
-.recipe-subtitle button{
+.recipe-subtitle button {
   margin-left: 8px;
   color: #999999;
   background-color: white;
   font-size: 12px;
   line-height: 22px;
   cursor: pointer;
-  border:none;
+  border: none;
 }
 
 li {
@@ -250,7 +250,7 @@ li {
   line-height: 28px;
 }
 
-.information p{
+.information p {
   max-width: 940px;
   margin: 0 auto;
   color: #444444;
@@ -260,6 +260,6 @@ li {
 
 .preparation.show-remove,
 .ingredients.show-remove,
-.information.show-remove{
+.information.show-remove {
   display: none;
 }
