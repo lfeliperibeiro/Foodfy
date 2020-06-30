@@ -1,0 +1,27 @@
+{
+  "name": "foodfy-revisao",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lfeliperibeiro/foodfy-revisao.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lfeliperibeiro/foodfy-revisao/issues"
+  },
+  "homepage": "https://github.com/lfeliperibeiro/foodfy-revisao#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nunjucks": "^3.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
