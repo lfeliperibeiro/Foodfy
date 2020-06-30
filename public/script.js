@@ -1,21 +1,34 @@
-const modalOverlay = document.querySelector(".modal-overlay");
 const cards = document.querySelectorAll(".card");
+const ingredients = document.querySelector(".ingredients");
+const preparation = document.querySelector(".preparation");
+const information = document.querySelector(".information");
+const buttons = document.querySelectorAll("button");
 
 for (let card of cards) {
   const imageId = card.getAttribute("id");
   card.addEventListener("click", () => {
-    location.href = `/recipe/${imageId}`
+    location.href = `/recipe/${imageId}`;
   });
 }
 
-// document.querySelector(".modal-close").addEventListener("click", () => {
-//   modalOverlay.classList.remove("active");
-// });
+document.querySelector(".button").addEventListener("click", () => {
+  ingredients.classList.toggle("show-remove");
+});
 
-// const modalTitle = card.children[1].textContent
-// modalOverlay.querySelector('h1').innerHTML = modalTitle
-// const modalAuthor = card.children[2].textContent
-// modalOverlay.querySelector('p').innerHTML = modalAuthor
+document.querySelector(".button1").addEventListener("click", () => {
+  preparation.classList.toggle("show-remove");
+});
 
-// modalOverlay.classList.add("active");
-//     modalOverlay.querySelector("img").src = `./assets/${imageId}.png`;
+document.querySelector(".button2").addEventListener("click", () => {
+  information.classList.toggle("show-remove");
+});
+
+for (let button of buttons) {
+  button.addEventListener("click", () => {
+    if (button.innerHTML == "ESCONDER") {
+      button.innerHTML = "MOSTRAR";
+    } else {
+      button.innerHTML = "ESCONDER";
+    }
+  });
+}

@@ -192,3 +192,74 @@ footer p {
 .modal-overlay.active {
   visibility: visible;
 }
+
+/* recipe */
+
+.recipe {
+  max-width: 940px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.recipe-content img {
+  max-width: 940px;
+  max-height: 280px;
+  border-radius: 15px;
+}
+.recipe-info {
+  color: #111111;
+  font-size: 32px;
+  line-height: 42px;
+  margin-top: 50px;
+}
+
+.recipe-author {
+  color: #777777;
+  font-size: 20px;
+  line-height: 30px;
+  margin-top: 4px;
+}
+
+.recipe-subtitle {
+  color: #111111;
+  font-size: 18px;
+  line-height: 28px;
+  margin: 0 auto;
+  max-width: 940px;
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 23px;
+}
+
+.recipe-subtitle button{
+  margin-left: 8px;
+  color: #999999;
+  background-color: white;
+  font-size: 12px;
+  line-height: 22px;
+  cursor: pointer;
+  border:none;
+}
+
+li {
+  max-width: 940px;
+  margin: 0 auto;
+  color: #444444;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.information p{
+  max-width: 940px;
+  margin: 0 auto;
+  color: #444444;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.preparation.show-remove,
+.ingredients.show-remove,
+.information.show-remove{
+  display: none;
+}
