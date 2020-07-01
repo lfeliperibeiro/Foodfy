@@ -242,6 +242,10 @@ footer p {
   border: none;
 }
 
+.recipe-subtitle button:focus{
+  outline: none;
+}
+
 li {
   max-width: 940px;
   margin: 0 auto;
