@@ -1,11 +1,12 @@
 const express = require("express");
 const nunjucks = require("nunjucks");
 const recipes = require("./data");
+const routes = express.Router();
 
 const server = express();
 
 server.set("view engine", "njk");
-
+server.use(routes);
 server.use(express.static("public"));
 
 nunjucks.configure("views", {
@@ -42,3 +43,5 @@ server.get("/recipe/:id", (req, res) => {
 server.listen(5000, () => {
   console.log("server is running");
 });
+
+module.exports = routes;
