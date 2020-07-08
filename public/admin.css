@@ -94,6 +94,7 @@ form .form-content input {
   border: 1px solid #dddddd;
   width: 940px;
   height: 49px;
+  border-radius: 4px;
 }
 
 form .form-content a {
@@ -118,6 +119,7 @@ form .form-add input {
   width: 940px;
   height: 257px;
   margin-bottom: 100px;
+  border-radius: 4px;
 }
 
 .title {
