@@ -13,24 +13,43 @@ body {
 
 header {
   display: flex;
-  margin: 0 auto;
-  max-width: 940px;
-  padding: 32px;
+  padding: 16px;
+  background-color: #000000;
+  margin-bottom: 55px;
 }
 
 .logo img {
   margin-right: 122px;
 }
 
-.links a {
+.recipe-title {
+  display: grid;
+  grid-template-columns: 83% 1fr;
+  margin: 0 auto;
+  max-width: 940px;
+  margin-bottom: 20px;
+}
+
+.recipe-title a {
+  background-color: #6558c3;
+  color: white;
+  text-align: center;
   font-size: 16px;
-  color: #111111;
   text-decoration: none;
-  margin-right: 30px;
+  border-radius: 4px;
+  padding: 16px 8px;
+  width: 136px;
+  height: 20px;
+}
+
+.recipe-title h1 {
+  color: #111111;
+  font-size: 24px;
+  line-height: 28px;
+  padding: 16px;
 }
 
 .banner {
-  background-color: #fbdfdb;
   max-width: 940px;
   margin: 0 auto;
   border-radius: 30px;
@@ -104,22 +123,6 @@ header {
   margin-top: 5px;
   font-size: 14px;
   color: #777777;
-}
-
-footer {
-  background-color: #eeeeee;
-  text-align: center;
-  margin-top: 73px;
-  width: 100%;
-  position: absolute;
-  bottom: -474px;
-}
-
-footer p {
-  color: #999999;
-  font-size: 14px;
-  line-height: 24px;
-  padding: 23px;
 }
 
 /* sobre */
@@ -260,6 +263,7 @@ li {
   color: #444444;
   font-size: 18px;
   line-height: 28px;
+  margin-bottom: 55px;
 }
 
 .preparation.show-remove,
