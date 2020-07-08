@@ -79,7 +79,7 @@ module.exports = [
     image:
       "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/lasanha.png",
     title: "Lasanha mac n' cheese",
-    author: "Juliano Vieira",
+    author: "por Juliano Vieira",
     ingredients: [
       "massa pronta de lasanha",
       "400 g de presunto",

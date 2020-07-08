@@ -1,63 +1,74 @@
-{% extends 'layoutadmin.njk' %}
-
-{% block head %}
-    <title>Foodfy | Receita</title>
-{% endblock head %}
+{% extends "layoutadmin.njk" %}
 
 {% block content %}
-
-    <section class="recipes">
-        <div class="recipe-title">
-            <h1>Receita: Tripo Bacon Burger</h1>
-            <a href="#">Editar receita</a>
-        </div>
-
-        <div class="recipe" id="">
-            <div class="recipe-content">
-                <img src="https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/burger.png" alt="burger"/>
+    <div class="recipe-title">
+        <h1>Gerenciar Receitas</h1>
+    </div>
+    <section class="cards">
+        <div class="card" id="">
+            <div class="card-content">
+                <img src="https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/burger.png" alt="Burger"/>
             </div>
-            <div class="recipe-info">
+            <div class="card-info">
                 <h1>Triplo bacon burger</h1>
+                <p class="card-author">por Jorge Relato</p>
+                <a class="view-button" href="#">Visualizar</a>
             </div>
-            <div class="recipe-author">
-                <p>por Jorge Relato</p>
+        </div>
+
+        <div class="card" id="">
+            <div class="card-content">
+                <img src="https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/pizza.png" alt="Burger"/>
+            </div>
+            <div class="card-info">
+                <h1>Pizza 4 estações</h1>
+                <p class="card-author">por Fabiana Melo</p>
+                <a class="view-button" href="#">Visualizar</a>
             </div>
         </div>
-        <div class="recipe-subtitle">
-            <h2>Ingredientes</h2>
-        </div>
-        <div class="ingredients">
-            <ul>
-                <li>3 kg de carne moída (escolha uma carne magra e macia)</li>
-                <li>300 g de bacon moído</li>
-                <li>1 ovo</li>
-                <li>3 colheres (sopa) de farinha de trigo</li>
-                <li>3 colheres (sopa) de tempero caseiro: feito com alho, sal, cebola, pimenta e cheiro verde processados no liquidificador</p>
-                <li>30 ml de água gelada</li>
-            </ul>
+
+        <div class="card" id="">
+            <div class="card-content">
+                <img src="https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/lasanha.png" alt="Burger"/>
+            </div>
+            <div class="card-info">
+                <h1>Lasanha mac n' cheese</h1>
+                <p class="card-author">por Juliano Vieira</p>
+                <a class="view-button" href="#">Visualizar</a>
+            </div>
         </div>
 
-        <div class="recipe-subtitle">
-            <h2>Modo de preparo</h2>
-        </div>
-        <div class="preparation">
-            <ul>
-                <li>Misture todos os ingredientes muito bem e amasse para que fique tudo muito bem misturado.</li>
-                <li>Faça porções de 90 g a 100 g.</li>
-                <li>Forre um plástico molhado em uma bancada e modele os hambúrgueres utilizando um aro como base.</li>
-                <li>Faça um de cada vez e retire o aro logo em seguida.</li>
-                <li>Forre uma assadeira de metal com plástico, coloque os hambúrgueres e intercale camadas de carne e plásticos (sem apertar).</li>
-                <li>Faça no máximo 4 camadas por forma e leve para congelar.</li>
-                <li>Retire do congelador, frite ou asse e está pronto.</li>
-            </ul>
+        <div class="card" id="">
+            <div class="card-content">
+                <img src="https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/doce.png" alt="Burger"/>
+            </div>
+            <div class="card-info">
+                <h1>Docinhos pão-do-céu</h1>
+                <p class="card-author">por Ricardo Golvea</p>
+                <a class="view-button" href="#">Visualizar</a>
+            </div>
         </div>
 
-        <div class="recipe-subtitle">
-            <h2>Informações adicionais</h2>
-
+        <div class="card" id="">
+            <div class="card-content">
+                <img src="https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/asinha.png" alt="Burger"/>
+            </div>
+            <div class="card-info">
+                <h1>Asinhas de frango ao barbecue</h1>
+                <p class="card-author">por Vania Steroski</p>
+                <a class="view-button" href="#">Visualizar</a>
+            </div>
         </div>
-        <div class="information ">
-            <p>Preaqueça a chapa, frigideira ou grelha por 10 minutos antes de levar os hambúrgueres. Adicione um pouquinho de óleo ou manteiga e não amasse os hambúrgueres!<br/>Você sabia que a receita que precede o hambúrguer surgiu no século XIII, na Europa? A ideia de moer a carne chegou em Hamburgo no século XVII, onde um açogueiro resolveu também temperá-la. Assim, a receita foi disseminada nos Estados Unidos por alemães da região. Lá surgiu a ideia de colocar o hambúrguer no meio do pão e adicionar outros ingredientes, como queijom tomates e alface.</p>
+
+        <div class="card" id="">
+            <div class="card-content">
+                <img src="https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/macarrao.png" alt="Burger"/>
+            </div>
+            <div class="card-info">
+                <h1>Espaguete ao alho</h1>
+                <p class="card-author">por Júlia Kinoto</p>
+                <a class="view-button" href="#">Visualizar</a>
+            </div>
         </div>
 
     </section>
