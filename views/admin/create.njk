@@ -3,30 +3,47 @@
 {% block content %}
 
     <section class="recipe-form">
-        <form action="">
+        <form action="/admin/recipes" method="POST">
             <div class="recipe-title">
                 <h1>Criando Receita</h1>
                 <button type="submit">Salvar receita</button>
             </div>
+
+            <div class="form-content">
+                <h2>Nome da receita</h2>
+                <input type="text" name="name">
+            </div>
+
+            <div class="form-content">
+                <h2>Autor</h2>
+                <input type="text" name="author">
+            </div>
+
             <div class="form-content">
                 <h2>Imagem da receita</h2>
                 <input type="url" name="recipe_url">
             </div>
-            <div class="form-content">
+            <div class="form-content" id="ingredients">
                 <h2>Ingredientes</h2>
-                <input type="text" name="ingredients">
-                <a href="#">Adicionar novo ingrediente</a>
+                <div class="ingredient">
+                    <input type="text" name="ingredients[]" value="" placeholder="Ingredientes"/>
+                    <a class="add-ingredient">Adicionar novo ingrediente</a>
+                </div>
             </div>
-            <div class="form-content">
-                <h2>Modo de preparo</h2>
-                <input type="text" name="prepare">
-                <a href="#">Adicionar novo passo</a>
+        </div>
+        <div class="form-content" id="prepares">
+            <h2>Modo de preparo</h2>
+            <div class="prepare">
+                <input type="text" name="prepares[]" value="" placeholder="Preparo">
+                <a class="add-prepare">Adicionar novo passo</a>
             </div>
-            <div class="form-add">
-                <h2>Informações adicionais</h2>
-                <input type="text" name="info">
+        </div>
+        <div class="form-add">
+            <h2>Informações adicionais</h2>
+            <input type="text" name="info">
 
-            </div>
-        </form>
-    </section>
+        </div>
+    </form>
+    <script src="/admin.js"></script>
+</section>
 {% endblock content %}

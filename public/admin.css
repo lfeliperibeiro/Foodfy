@@ -105,6 +105,7 @@ form .form-content a {
   font-weight: bold;
   display: inline-block;
   margin-top: 15px;
+  cursor: pointer;
 }
 
 form .form-add h2 {
