@@ -30,6 +30,18 @@ header {
   margin-bottom: 20px;
 }
 
+.recipe-title button {
+  background-color: #6558c3;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  padding: 16px 8px;
+  width: 136px;
+  height: 47px;
+}
+
 .recipe-title a {
   background-color: #6558c3;
   color: white;
@@ -66,23 +78,46 @@ header {
   margin-top: 30px;
 }
 
-.banner-text {
-  margin-left: 60px;
-  margin-top: 117px;
+form {
+  max-width: 940px;
+  margin: 0 auto;
 }
 
-.banner-text h1 {
+form .form-content h2 {
+  font-size: 16px;
+  line-height: 19px;
   color: #111111;
-  font-size: 32px;
-  margin-bottom: 10px;
+  margin: 30px 0 10px 0;
 }
 
-.banner-text p {
-  text-align: left;
-  padding: 10px 90px 10px 0;
-  color: #000000;
-  font-size: 18px;
-  line-height: 28px;
+form .form-content input {
+  border: 1px solid #dddddd;
+  width: 940px;
+  height: 49px;
+}
+
+form .form-content a {
+  color: #6558c3;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+form .form-add h2 {
+  font-size: 16px;
+  line-height: 19px;
+  color: #111111;
+  margin: 30px 0 10px 0;
+}
+
+form .form-add input {
+  border: 1px solid #dddddd;
+  width: 940px;
+  height: 257px;
+  margin-bottom: 100px;
 }
 
 .title {
