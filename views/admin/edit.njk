@@ -10,21 +10,26 @@
             </div>
             <div class="form-content">
                 <h2>Imagem da receita</h2>
-                <input type="url" name="recipe_url">
+                <input type="url" name="recipe_url" value="{{recipe.recipe_url}}">
             </div>
             <div class="form-content">
                 <h2>Ingredientes</h2>
-                <input type="text" name="ingredients">
-                <a href="#">Adicionar novo ingrediente</a>
+                {% for ingredient in recipe.ingredients %}
+                    <input type="text" name="ingredients" value="{{ingredient}}">
+                {% endfor %}
             </div>
+            <a class="add-ingredient">Adicionar novo ingrediente</a>
             <div class="form-content">
                 <h2>Modo de preparo</h2>
-                <input type="text" name="prepare">
-                <a href="#">Adicionar novo passo</a>
+                {% for prepare in recipe.prepares %}
+                    <input type="text" name="prepare" value="{{prepare}}">
+                {% endfor %}
+
             </div>
+            <a class="add-ingredient">Adicionar novo passo</a>
             <div class="form-add">
                 <h2>Informações adicionais</h2>
-                <input type="text" name="info">
+                <input type="text" name="info" value="{{recipe.info}}">
 
             </div>
         </form>

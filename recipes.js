@@ -35,3 +35,29 @@ exports.post = function (req, res) {
     return res.redirect("/admin/recipes");
   });
 };
+
+exports.show = function (req, res) {
+  const { id } = req.params;
+  const foundRecipe = data.recipes.find(function (recipe) {
+    return recipe.id == id;
+  });
+  if (!foundRecipe) return res.send("Receita não encontrada");
+
+  const recipe = {
+    ...foundRecipe,
+  };
+  return res.render("./admin/show", { recipe });
+};
+
+exports.edit = function (req, res) {
+  const { id } = req.params;
+  const foundRecipe = data.recipes.find(function (recipe) {
+    return recipe.id == id;
+  });
+  if (!foundRecipe) return res.send("Página não encontrada");
+
+  const recipe = {
+    ...foundRecipe,
+  };
+  return res.render("./admin/edit", { recipe });
+};

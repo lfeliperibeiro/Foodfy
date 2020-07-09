@@ -5,71 +5,18 @@
         <h1>Gerenciar Receitas</h1>
     </div>
     <section class="cards">
-        <div class="card" id="">
-            <div class="card-content">
-                <img src="https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/burger.png" alt="Burger"/>
+        {% for recipe in recipes %}
+            <div class="card">
+                <div class="card-content">
+                    <img src="{{recipe.recipe_url}}" alt="{{recipe.name}}"/>
+                </div>
+                <div class="card-info">
+                    <h1>{{recipe.name}}</h1>
+                    <p class="card-author">{{recipe.author}}</p>
+                    <a class="view-button" href="/admin/recipes/{{recipe.id}}">Visualizar</a>
+                </div>
             </div>
-            <div class="card-info">
-                <h1>Triplo bacon burger</h1>
-                <p class="card-author">por Jorge Relato</p>
-                <a class="view-button" href="#">Visualizar</a>
-            </div>
-        </div>
-
-        <div class="card" id="">
-            <div class="card-content">
-                <img src="https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/pizza.png" alt="Burger"/>
-            </div>
-            <div class="card-info">
-                <h1>Pizza 4 estações</h1>
-                <p class="card-author">por Fabiana Melo</p>
-                <a class="view-button" href="#">Visualizar</a>
-            </div>
-        </div>
-
-        <div class="card" id="">
-            <div class="card-content">
-                <img src="https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/lasanha.png" alt="Burger"/>
-            </div>
-            <div class="card-info">
-                <h1>Lasanha mac n' cheese</h1>
-                <p class="card-author">por Juliano Vieira</p>
-                <a class="view-button" href="#">Visualizar</a>
-            </div>
-        </div>
-
-        <div class="card" id="">
-            <div class="card-content">
-                <img src="https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/doce.png" alt="Burger"/>
-            </div>
-            <div class="card-info">
-                <h1>Docinhos pão-do-céu</h1>
-                <p class="card-author">por Ricardo Golvea</p>
-                <a class="view-button" href="#">Visualizar</a>
-            </div>
-        </div>
-
-        <div class="card" id="">
-            <div class="card-content">
-                <img src="https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/asinha.png" alt="Burger"/>
-            </div>
-            <div class="card-info">
-                <h1>Asinhas de frango ao barbecue</h1>
-                <p class="card-author">por Vania Steroski</p>
-                <a class="view-button" href="#">Visualizar</a>
-            </div>
-        </div>
-
-        <div class="card" id="">
-            <div class="card-content">
-                <img src="https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/macarrao.png" alt="Burger"/>
-            </div>
-            <div class="card-info">
-                <h1>Espaguete ao alho</h1>
-                <p class="card-author">por Júlia Kinoto</p>
-                <a class="view-button" href="#">Visualizar</a>
-            </div>
-        </div>
+        {% endfor %}
 
     </section>
 
