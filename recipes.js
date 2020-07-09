@@ -32,7 +32,7 @@ exports.post = function (req, res) {
   fs.writeFile("data.json", JSON.stringify(data, null, 2), function (err) {
     if (err) return res.send("erro ao carregar");
 
-    return res.redirect("/admin/recipes");
+    return res.redirect("./admin/recipes");
   });
 };
 

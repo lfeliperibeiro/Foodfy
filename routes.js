@@ -2,6 +2,7 @@ const express = require("express");
 const routes = express.Router();
 const allRecipes = require("./data");
 const recipes = require("./recipes");
+const data = require("./data.json");
 
 routes.get("/admin/recipes", recipes.index);
 routes.get("/admin/recipes/create", recipes.create);
@@ -13,7 +14,7 @@ routes.post("/admin/recipes", recipes.post);
 // routes.delete("/admin/recipes", recipes.delete);
 
 routes.get("/", (req, res) => {
-  return res.render("index", { items: allRecipes });
+  return res.render("index", { recipes: data.recipes });
 });
 
 routes.get("/about", (req, res) => {
@@ -24,17 +25,17 @@ routes.get("/recipes", (req, res) => {
   return res.render("recipes", { items: allRecipes });
 });
 
-routes.get("/recipe/:id", (req, res) => {
-  const id = req.params.id;
-
-  const recipe = allRecipes.find((recipe) => {
+routes.get("/recipes/:id", (req, res) => {
+  const { id } = req.params;
+  const foundRecipe = data.recipes.find(function (recipe) {
     return recipe.id == id;
   });
-  if (!recipe) {
-    return res.status(404).render("notfound");
-  }
+  if (!foundRecipe) return res.send("Receita não encontrada");
 
-  return res.render("recipe", { item: recipe });
+  const recipe = {
+    ...foundRecipe,
+  };
+  return res.render("recipe", { recipe });
 });
 
 module.exports = routes;

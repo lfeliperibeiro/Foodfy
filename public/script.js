@@ -7,7 +7,7 @@ const buttons = document.querySelectorAll("button");
 for (let card of cards) {
   const imageId = card.getAttribute("id");
   card.addEventListener("click", () => {
-    location.href = `/recipe/${imageId}`;
+    location.href = `/recipes/${imageId}`;
   });
 }
 

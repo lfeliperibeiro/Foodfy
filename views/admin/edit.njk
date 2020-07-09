@@ -6,7 +6,7 @@
         <form action="/recipes" method="POST">
             <div class="recipe-title">
                 <h1>Criando Receita</h1>
-                <button type="submit">Editar receita</button>
+                <button type="submit">Salvar</button>
             </div>
             <div class="form-content">
                 <h2>Imagem da receita</h2>
@@ -29,7 +29,7 @@
             <a class="add-ingredient">Adicionar novo passo</a>
             <div class="form-add">
                 <h2>Informações adicionais</h2>
-                <input type="text" name="info" value="{{recipe.info}}">
+                <textarea name="info" cols="30" rows="10">{{recipe.info}}</textarea>
 
             </div>
         </form>

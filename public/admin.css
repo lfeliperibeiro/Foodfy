@@ -95,6 +95,21 @@ form .form-content input {
   width: 940px;
   height: 49px;
   border-radius: 4px;
+  font-size: 16px;
+  line-height: 19px;
+  color: #111111;
+  padding: 8px;
+}
+
+textarea {
+  border: 1px solid #dddddd;
+  width: 940px;
+  border-radius: 4px;
+  margin-bottom: 30px;
+  font-size: 16px;
+  line-height: 19px;
+  color: #111111;
+  padding: 8px;
 }
 
 form .form-content a {
