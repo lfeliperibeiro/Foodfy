@@ -5,16 +5,16 @@
 
 {% block content %}
   <section class="cards">
-    {% for item in items %}
-      <div class="card" id="{{item.id}}">
+    {% for recipe in recipes %}
+      <div class="card" id="{{recipe.id}}">
         <div class="card-content">
-          <img src="{{item.image}}" alt="{{item.title}}"/>
+          <img src="{{recipe.recipe_url}}" alt="{{recipe.name}}"/>
         </div>
         <div class="card-info">
-          <h1>{{item.title}}</h1>
+          <h1>{{recipe.name}}</h1>
         </div>
         <div class="card-author">
-          <p>{{item.author}}</p>
+          <p>{{recipe.author}}</p>
         </div>
       </div>
     {% endfor %}
@@ -22,4 +22,4 @@
 
 {% endblock content %}
 
- <script src="/script.js"></script>
+<script src="/script.js"></script>

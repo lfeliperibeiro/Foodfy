@@ -22,7 +22,7 @@ routes.get("/about", (req, res) => {
 });
 
 routes.get("/recipes", (req, res) => {
-  return res.render("recipes", { items: allRecipes });
+  return res.render("recipes", { recipes: data.recipes });
 });
 
 routes.get("/recipes/:id", (req, res) => {

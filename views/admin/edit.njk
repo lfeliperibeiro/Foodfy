@@ -1,44 +1,56 @@
 {% extends "layoutadmin.njk" %}
 
 {% block content %}
+    <div class="form-content">
+        <h1 class="recipe-name">Editando Receita</h1>
+        <section class="recipe-form">
+            <form id="form-delete" method="POST" action="/admin/recipes?_method=DELETE">
+                <input type="hidden" name="id" value="{{recipe.id}}">
+                <button class="button-delete" type="submit">Deletar</button>
+            </form>
+            <form action="/admin/recipes?_method=PUT" method="POST">
+                <input type="hidden" name="id" value="{{recipe.id}}">
+                <div class="recipe-title">
+                    <button type="submit">Salvar receita</button>
+                </div>
 
-    <section class="recipe-form">
-        <form id="form-delete" method="POST" action="/admin/recipes?_method=DELETE">
-            <input type="hidden" name="id" value="{{recipe.id}}">
-            <button class="button-delete" type="submit">Deletar</button>
-        </form>
-        <form action="/admin/recipes?_method=PUT" method="POST">
-            <input type="hidden" name="id" value="{{recipe.id}}">
-            <div class="recipe-title">
-                <h1>Criando Receita</h1>
-                <button type="submit">Salvar receita</button>
-            </div>
-            <div class="form-content">
-                <h2>Imagem da receita</h2>
-                <input type="url" name="recipe_url" value="{{recipe.recipe_url}}">
-            </div>
-            <div class="form-content">
-                <h2>Ingredientes</h2>
-                {% for ingredient in recipe.ingredients %}
-                    <input type="text" name="ingredients" value="{{ingredient}}">
-                {% endfor %}
-            </div>
-            <a class="add-ingredient">Adicionar novo ingrediente</a>
-            <div class="form-content">
-                <h2>Modo de preparo</h2>
-                {% for prepare in recipe.prepares %}
-                    <input type="text" name="prepare" value="{{prepare}}">
-                {% endfor %}
+                <div class="form-content">
+                    <h2>Nome da receita</h2>
+                    <input type="text" name="name" value="{{recipe.name}}">
+                </div>
 
-            </div>
-            <a class="add-ingredient">Adicionar novo passo</a>
-            <div class="form-add">
-                <h2>Informações adicionais</h2>
-                <textarea name="info" cols="30" rows="10">{{recipe.info}}</textarea>
+                <div class="form-content">
+                    <h2>Autor</h2>
+                    <input type="text" name="author" value="{{recipe.author}}">
+                </div>
+                <div class="form-content">
+                    <h2>Imagem da receita</h2>
+                    <input type="url" name="recipe_url" value="{{recipe.recipe_url}}">
+                </div>
+                <div class="form-content">
+                    <h2>Ingredientes</h2>
+                    {% for ingredient in recipe.ingredients %}
+                        <input type="text" name="ingredients" value="{{ingredient}}">
+                    {% endfor %}
+                </div>
+                <a class="add-ingredient">Adicionar novo ingrediente</a>
+                <div class="form-content">
+                    <h2>Modo de preparo</h2>
+                    {% for prepare in recipe.prepares %}
+                        <input type="text" name="prepare" value="{{prepare}}">
+                    {% endfor %}
 
-            </div>
+                </div>
+                <a class="add-ingredient">Adicionar novo passo</a>
+                <div class="form-add">
+                    <h2>Informações adicionais</h2>
+                    <textarea name="info" cols="30" rows="10">{{recipe.info}}</textarea>
 
-        </form>
+                </div>
 
-    </section>
+            </form>
+
+        </section>
+    </div>
+    {% include "../delete.njk"%}
 {% endblock content %}
