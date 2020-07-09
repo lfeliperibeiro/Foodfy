@@ -3,10 +3,15 @@
 {% block content %}
 
     <section class="recipe-form">
-        <form action="/recipes" method="POST">
+        <form id="form-delete" method="POST" action="/admin/recipes?_method=DELETE">
+            <input type="hidden" name="id" value="{{recipe.id}}">
+            <button class="button-delete" type="submit">Deletar</button>
+        </form>
+        <form action="/admin/recipes?_method=PUT" method="POST">
+            <input type="hidden" name="id" value="{{recipe.id}}">
             <div class="recipe-title">
                 <h1>Criando Receita</h1>
-                <button type="submit">Salvar</button>
+                <button type="submit">Salvar receita</button>
             </div>
             <div class="form-content">
                 <h2>Imagem da receita</h2>
@@ -32,6 +37,8 @@
                 <textarea name="info" cols="30" rows="10">{{recipe.info}}</textarea>
 
             </div>
+
         </form>
+
     </section>
 {% endblock content %}

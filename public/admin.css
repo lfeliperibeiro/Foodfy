@@ -23,11 +23,9 @@ header {
 }
 
 .recipe-title {
-  display: grid;
-  grid-template-columns: 83% 1fr;
   margin: 0 auto;
-  max-width: 940px;
   margin-bottom: 20px;
+  display: inline-block;
 }
 
 .recipe-title button {
@@ -40,8 +38,13 @@ header {
   padding: 16px 8px;
   width: 136px;
   height: 47px;
+  position: absolute;
+  right: 3%;
+  top: 0%;
 }
-
+section.recipes {
+  position: relative;
+}
 .recipe-title a {
   background-color: #6558c3;
   color: white;
@@ -52,6 +55,9 @@ header {
   padding: 16px 8px;
   width: 136px;
   height: 20px;
+  position: absolute;
+  right: 3%;
+  top: 35%;
 }
 
 .recipe-title h1 {
@@ -148,6 +154,22 @@ form .form-add input {
   height: 257px;
   margin-bottom: 100px;
   border-radius: 4px;
+}
+
+form {
+  position: relative;
+}
+
+#form-delete button {
+  background-color: #dc4747;
+  font-size: 16px;
+  line-height: 19px;
+  border-radius: 4px;
+  width: 92px;
+  padding: 14px;
+  color: white;
+  position: absolute;
+  right: 20%;
 }
 
 .title {
