@@ -12,11 +12,32 @@ body {
 }
 
 header {
-  display: flex;
+  display: grid;
+  grid-template-columns: 150px 1fr 300px;
+  align-items: center;
   margin: 0 auto;
   max-width: 940px;
   padding: 32px;
+  box-sizing: border-box;
 }
+
+button.filter{
+  align-self: end; 
+  background-color:  #6558C3;
+  color: white;
+  padding: 8px 16px;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+header input{
+  border: 1px solid #DDDDDD  ;
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 4px;
+
+}
+
 
 .logo img {
   margin-right: 122px;

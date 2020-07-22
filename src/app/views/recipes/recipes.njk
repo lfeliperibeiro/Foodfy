@@ -2,6 +2,15 @@
 {% block head %}
   <title>Foodfy | Receitas</title>
 {% endblock head %}
+{% block header %}
+<div class="filter-form">
+  <form action="/recipes"method="get">
+    <input type="text" name="filter" placeholder="Buscar uma receita">
+    <button type="submit"class="filter">Buscar</button>
+  </form>
+</div>
+
+{% endblock header %}
 
 {% block content %}
   <section class="cards">

@@ -38,7 +38,7 @@ routes.get("/recipes/:id", (req, res) => {
   return res.render("recipes/recipe", { recipe });
 });
 routes.get("/chefs", (req, res)=>{
-  return res.render("chefs")
+  return res.render("recipes/chefs")
 })
 
 module.exports = routes;
