@@ -1,6 +1,5 @@
 const express = require("express");
 const routes = express.Router();
-const allRecipes = require("./data");
 const recipes = require("./recipes");
 const data = require("./data.json");
 
@@ -8,6 +7,7 @@ routes.get("/admin/recipes", recipes.index);
 routes.get("/admin/recipes/create", recipes.create);
 routes.get("/admin/recipes/:id", recipes.show);
 routes.get("/admin/recipes/:id/edit", recipes.edit);
+
 
 routes.post("/admin/recipes", recipes.post);
 routes.put("/admin/recipes", recipes.put);
@@ -31,11 +31,14 @@ routes.get("/recipes/:id", (req, res) => {
     return recipe.id == id;
   });
   if (!foundRecipe) return res.send("Receita não encontrada");
-
+  
   const recipe = {
     ...foundRecipe,
   };
   return res.render("recipe", { recipe });
 });
+routes.get("/chefs", (req, res)=>{
+  return res.render("chefs")
+})
 
 module.exports = routes;

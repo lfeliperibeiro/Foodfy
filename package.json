@@ -2,11 +2,11 @@
   "name": "foodfy",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "src/server.js",
   "scripts": {
     "start": "npm-run-all -p nodemon browsersync",
     "nodemon": "nodemon server.js",
-    "browsersync": "browser-sync start --proxy http://localhost:5000 --files 'puclic, views'"
+    "browsersync": "browser-sync start --proxy http://localhost:5000 --files 'public, src/app/views'"
   },
   "repository": {
     "type": "git",
