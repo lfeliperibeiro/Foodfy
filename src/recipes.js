@@ -59,7 +59,7 @@ exports.edit = function (req, res) {
   const recipe = {
     ...foundRecipe,
   };
-  return res.render("/admin/edit", { recipe });
+  return res.render("admin/edit", { recipe });
 };
 
 exports.put = function (req, res) {

@@ -14,15 +14,15 @@ routes.put("/admin/recipes", recipes.put);
 routes.delete("/admin/recipes", recipes.delete);
 
 routes.get("/", (req, res) => {
-  return res.render("index", { recipes: data.recipes });
+  return res.render("recipes/index", { recipes: data.recipes });
 });
 
 routes.get("/about", (req, res) => {
-  return res.render("about");
+  return res.render("recipes/about");
 });
 
 routes.get("/recipes", (req, res) => {
-  return res.render("recipes", { recipes: data.recipes });
+  return res.render("recipes/recipes", { recipes: data.recipes });
 });
 
 routes.get("/recipes/:id", (req, res) => {
@@ -35,7 +35,7 @@ routes.get("/recipes/:id", (req, res) => {
   const recipe = {
     ...foundRecipe,
   };
-  return res.render("recipe", { recipe });
+  return res.render("recipes/recipe", { recipe });
 });
 routes.get("/chefs", (req, res)=>{
   return res.render("chefs")
