@@ -1,0 +1,26 @@
+{% extends 'admin/layout.njk' %}
+
+{% block content %}
+
+    <section class="recipe-form">
+        <form action="/admin/chefs" method="POST">
+            <div class="recipe-title">
+                <h1>Criando Chef</h1>
+                <button type="submit">Salvar chef</button>
+            </div>
+
+            <div class="form-content">
+                <h2>Nome</h2>
+                <input type="text" name="name">
+            </div>
+
+            <div class="form-content">
+                <h2>Avatar</h2>
+                <input type="url" name="avatar_url">
+            </div>
+
+        </div>
+    </form>
+    <script src="/admin.js"></script>
+</section>
+{% endblock content %}
