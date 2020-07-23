@@ -3,7 +3,8 @@ const Recipe = require("../models/Recipe");
 
 module.exports = {
   index(req, res) {
-    return res.render("admin/index", { recipes: data.recipes });
+  
+    return res.render("admin/index", { recipes: data.recipes});
   },
   create(req, res) {
     return res.render("admin/create");

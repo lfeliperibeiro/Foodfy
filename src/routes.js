@@ -1,6 +1,7 @@
 const express = require("express");
 const routes = express.Router();
 const recipes = require("./app/controllers/recipes");
+const chefs = require("./app/controllers/chefs")
 const data = require("./data.json");
 
 routes.get("/admin/recipes", recipes.index);
@@ -12,6 +13,8 @@ routes.get("/admin/recipes/:id/edit", recipes.edit);
 routes.post("/admin/recipes", recipes.post);
 routes.put("/admin/recipes", recipes.put);
 routes.delete("/admin/recipes", recipes.delete);
+
+routes.get("/admin/chefs", chefs.index)
 
 routes.get("/", (req, res) => {
   return res.render("recipes/index", { recipes: data.recipes });
