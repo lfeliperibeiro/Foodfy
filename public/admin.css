@@ -355,7 +355,7 @@ li {
 /* chef */
 
 img.avatar{
-  width: 200px;
+  max-width: 200px;
   height: 200px;
   border-radius: 50%;  
 }
@@ -364,3 +364,10 @@ h1.chef-name{
   font-size: 36px;
   line-height: 46px;
 }
+
+img.avatar-index{
+  max-width: 64px;
+  height: 64px;
+  border-radius: 50%;  
+}
+

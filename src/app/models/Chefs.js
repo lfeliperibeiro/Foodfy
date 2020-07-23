@@ -26,18 +26,45 @@ module.exports = {
       RETURNING id`;
 
     const values = [data.name, data.avatar_url, date(Date.now()).iso];
-        db.query(query, values, (err,results)=>{
-            if (err) throw `DataBase error ${err}`
+    db.query(query, values, (err, results) => {
+      if (err) throw `DataBase error ${err}`;
 
-            callback(results.rows[0])
-        })
+      callback(results.rows[0]);
+    });
   },
-  find(id, callback){
-    db.query(`
-    SELECT * FROM chefs WHERE id= $1`, [id], (err, results)=>{
+  find(id, callback) {
+    db.query(
+      `
+    SELECT * FROM chefs WHERE id= $1`,
+      [id],
+      (err, results) => {
+        if (err) throw `Database error ${err}`;
+
+        callback(results.rows[0]);
+      }
+    );
+  },
+  update(data, callback) {
+    const query = `
+      UPDATE chefs SET
+      avatar_url=($1),
+      name=($2)
+      WHERE id=$3`;
+
+    const values = [data.avatar_url, data.name, data.id];
+
+    db.query(query, values, (err, results)=>{
         if(err) throw `Database error ${err}`
 
-        callback(results.rows[0])
+        callback()
     })
+  },
+  delete(id, callback){
+      db.query(`
+      DELETE FROM chefs WHERE id = $1`, [id], (err, results)=>{
+          if(err) throw `Database error ${err}`
+
+          callback()
+      })
   }
 };
