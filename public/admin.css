@@ -350,3 +350,17 @@ li {
 .information.show-remove {
   display: none;
 }
+
+
+/* chef */
+
+img.avatar{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;  
+}
+
+h1.chef-name{
+  font-size: 36px;
+  line-height: 46px;
+}

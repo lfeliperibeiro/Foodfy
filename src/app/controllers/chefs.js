@@ -20,4 +20,19 @@ module.exports = {
       return res.redirect(`/chefs/${chef.id}`);
     });
   },
+  show(req, res) {
+    Chefs.find(req.params.id, (chef) => {
+      if (!chef) return res.send("Chef não encontrado");
+      chef.created_at = date(chef.created_at).format;
+
+      return res.render("chefs/show", { chef });
+    });
+  },
+  edit(req, res) {
+    Chefs.find(req.params.id, (chef) => {
+      if (!chef) return res.send("Chef não encontrado");
+
+      return res.render("chefs/edit", { chef });
+    });
+  },
 };

@@ -17,6 +17,8 @@ routes.delete("/admin/recipes", recipes.delete);
 routes.get("/admin/chefs", chefs.index)
 routes.get("/admin/chefs/create", chefs.create)
 routes.post("/admin/chefs", chefs.post)
+routes.get("/admin/chefs/:id", chefs.show)
+routes.get("/admin/chefs/:id/edit", chefs.edit)
 
 routes.get("/", (req, res) => {
   return res.render("recipes/index", { recipes: data.recipes });
