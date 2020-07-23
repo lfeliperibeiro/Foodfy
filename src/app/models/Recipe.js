@@ -21,7 +21,6 @@ module.exports = {
             ingredients,
             preparation, 
             information,
-            author,
             created_at
         ) VALUES($1,$2,$3,$4,$5,$6,$7)
         RETURNING id`;
@@ -32,7 +31,6 @@ module.exports = {
       data.ingredients,
       data.preparation,
       data.information,
-      data.author,
       date(Date.now()).iso,
     ];
     db.query(query,values, (err, results)=>{
