@@ -12,16 +12,20 @@ body {
 }
 
 header {
-  display: flex;
   padding: 16px;
   background-color: #000000;
   margin-bottom: 55px;
+ 
+}
+.header {
+  max-width: 940px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 500px 1fr;
+  grid-template-columns: 120px 1fr;
   align-items: center;
 }
 
-.links a{
+.links a {
   color: white;
   font-size: 15px;
   line-height: 18px;
@@ -29,19 +33,9 @@ header {
   margin-left: 30px;
 }
 
-.links a:hover{
+.links a:hover {
   color: #999999;
   transition: 400ms;
-}
-
-.logo img {
-  margin-right: 122px;
-}
-
-.recipe-title {
-  margin: 0 auto;
-  margin-bottom: 20px;
-  display: inline-block;
 }
 
 .recipe-title button {
@@ -61,6 +55,15 @@ header {
 section.recipes {
   position: relative;
 }
+
+.recipe-title {
+  display: grid;
+  grid-template-columns: 1fr 150px;
+  align-items: center;
+  max-width: 940px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
 .recipe-title a {
   background-color: #6558c3;
   color: white;
@@ -69,21 +72,12 @@ section.recipes {
   text-decoration: none;
   border-radius: 4px;
   padding: 16px 8px;
-  width: 136px;
-  height: 20px;
-  position: absolute;
-  right: 3%;
-  top: 35%;
-  
 }
 
 .recipe-title h1 {
   color: #111111;
   font-size: 24px;
   line-height: 28px;
-  padding: 10px 0px 0 100px;
-  max-width: 940px;
-  display: inline-block;
   box-sizing: border-box;
 }
 
@@ -95,7 +89,6 @@ h1.recipe-name {
   max-width: 940px;
   display: inline-block;
   box-sizing: border-box;
-  
 }
 
 .banner {
@@ -351,23 +344,21 @@ li {
   display: none;
 }
 
-
 /* chef */
 
-img.avatar{
+img.avatar {
   max-width: 200px;
   height: 200px;
-  border-radius: 50%;  
+  border-radius: 50%;
 }
 
-h1.chef-name{
+h1.chef-name {
   font-size: 36px;
   line-height: 46px;
 }
 
-img.avatar-index{
+img.avatar-index {
   max-width: 64px;
   height: 64px;
-  border-radius: 50%;  
+  border-radius: 50%;
 }
-

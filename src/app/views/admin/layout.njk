@@ -8,20 +8,21 @@
         {% endblock head %}
         <link rel="stylesheet" href="/admin.css"/>
     </head>
-    
+
     <body>
         <header>
-            <div class="logo">
-                <a href="/"><img src="/assets/logo_white.png" alt="foodfy"/></a>
-            </div>
-             <div class="links">
-                <a href="/admin/recipes">RECEITAS</a>                                           
-                <a href="/admin/chefs">CHEFS</a>                                           
+            <div class="header">
+                <div class="logo">
+                    <a href="/"><img src="/assets/logo_white.png" alt="foodfy"/></a>
+                </div>
+                <div class="links">
+                    <a href="/admin/recipes">RECEITAS</a>
+                    <a href="/admin/chefs">CHEFS</a>
+                </div>
             </div>
 
         </header>
         {% block content %}{% endblock content %}
 
-       
     </body>
 </html>

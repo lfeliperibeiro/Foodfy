@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="form-content">
-        <h1 class="recipe-name">Editando Receita</h1>
+        
         <section class="recipe-form">
             <form id="form-delete" method="POST" action="/admin/recipes?_method=DELETE">
                 <input type="hidden" name="id" value="{{recipe.id}}">
@@ -11,6 +11,7 @@
             <form action="/admin/recipes?_method=PUT" method="POST">
                 <input type="hidden" name="id" value="{{recipe.id}}">
                 <div class="recipe-title">
+                    <h1>Editando Receita</h1>
                     <button type="submit">Salvar receita</button>
                 </div>
 
