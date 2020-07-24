@@ -20,7 +20,11 @@
 
             <div class="form-content">
                 <h2>Chef</h2>
-                <input type="text" name="author">
+                <select name="chef">
+                    {% for chef in chefOptions %}
+                    <option value="{{chef.id}}"{% if recipe.chef.id == chef.id%} selected {%endif%}>{{chef.name}}</option>
+                    {% endfor %}
+                </select>
             </div>
 
              

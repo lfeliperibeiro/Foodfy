@@ -8,7 +8,10 @@ module.exports = {
     });
   },
   create(req, res) {
-    return res.render("admin/create");
+    Recipes.chefSelectOptions((options)=>{
+      
+      return res.render("admin/create", {chefOptions: options});
+    })
   },
   post(req, res) {
     const keys = Object.keys(req.body);

@@ -133,6 +133,7 @@ form .form-content input {
   line-height: 19px;
   color: #111111;
   padding: 8px;
+  font-size: 16px;
 }
 
 textarea {
@@ -365,4 +366,16 @@ img.avatar-index {
   max-width: 64px;
   height: 64px;
   border-radius: 50%;
+}
+
+select{
+  border: 1px solid #dddddd;
+  background-color: white;
+  width: 940px;
+  height: 49px;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 19px;
+  color: #111111;
+  padding: 8px;
 }
