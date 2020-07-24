@@ -6,6 +6,10 @@
   padding: 0;
 }
 
+:root{
+  --primary-color: #811606bd;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   position: relative;
@@ -39,7 +43,7 @@ header {
 }
 
 .recipe-title button {
-  background-color: #6558c3;
+  background-color: var(--primary-color);
   color: white;
   text-align: center;
   font-size: 16px;
@@ -65,7 +69,7 @@ section.recipes {
   margin-bottom: 30px;
 }
 .recipe-title a {
-  background-color: #6558c3;
+  background-color: var(--primary-color);
   color: white;
   text-align: center;
   font-size: 16px;
@@ -143,7 +147,7 @@ textarea {
 }
 
 form .form-content a {
-  color: #6558c3;
+  color: var(--primary-color);
   text-decoration: none;
   font-size: 16px;
   line-height: 19px;
@@ -155,7 +159,7 @@ form .form-content a {
 
 .add-prepare,
 .add-ingredient {
-  color: #6558c3;
+  color: var(--primary-color);
   text-decoration: none;
   font-size: 16px;
   line-height: 19px;
@@ -242,7 +246,7 @@ form {
 
 .view-button {
   text-decoration: none;
-  color: #6558c3;
+  color: var(--primary-color);
   font-size: 14px;
   line-height: 16px;
   margin-left: 20px;
