@@ -9,11 +9,11 @@
         {% for recipe in recipes %}
             <div class="card">
                 <div class="card-content">
-                    <img src="{{recipe.recipe_url}}" alt="{{recipe.name}}"/>
+                    <img src="{{recipe.image}}" alt="{{recipe.name}}"/>
                 </div>
                 <div class="card-info">
-                    <h1>{{recipe.name}}</h1>
-                    <p class="card-author">{{recipe.author}}</p>
+                    <h1>{{recipe.title}}</h1>
+                    <p class="card-author"></p>
                     <a class="view-button" href="/admin/recipes/{{recipe.id}}">Visualizar</a>
                 </div>
             </div>

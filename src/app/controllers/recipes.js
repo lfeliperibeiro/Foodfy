@@ -1,10 +1,11 @@
-const data = require("../../data.json");
-const Recipe = require("../models/Recipe");
+const { date } = require("../../lib/utils");
+const Recipes = require("../models/Recipes");
 
 module.exports = {
   index(req, res) {
-  
-    return res.render("admin/index", { recipes: data.recipes});
+    Recipes.all((recipes) => {
+      return res.render("admin/index", { recipes });
+    });
   },
   create(req, res) {
     return res.render("admin/create");
@@ -16,41 +17,39 @@ module.exports = {
         return res.send("Preencha todos os campos");
       }
     }
-    Recipe.create(req.body, (recipe) => {
+    Recipes.create(req.body, (recipe) => {
       return res.redirect(`/admin/recipes/${recipe.id}`);
     });
   },
   show(req, res) {
-    const { id } = req.params;
-    const foundRecipe = data.recipes.find(function (recipe) {
-      return recipe.id == id;
-    });
-    if (!foundRecipe) return res.send("Receita não encontrada");
+    Recipes.find(req.params.id, (recipe) => {
+      if (!recipe) return res.send("Receita não encontrada");
 
-    const recipe = {
-      ...foundRecipe,
-    };
-    return res.render("./admin/show", { recipe });
+      return res.render("admin/show", { recipe });
+    });
   },
   edit(req, res) {
-    const { id } = req.params;
-    const foundRecipe = data.recipes.find(function (recipe) {
-      return recipe.id == id;
-    });
-    if (!foundRecipe) return res.send("Página não encontrada");
-
-    const recipe = {
-      ...foundRecipe,
-    };
-    return res.render("admin/edit", { recipe });
+    Recipes.find(req.params.id, (recipe)=>{
+      if(!recipe) return res.send("Receita não encontrada")
+      
+      return res.render("admin/edit", {recipe})
+    })
+    return ;
   },
   put(req, res) {
-    const { id } = req.body;
-    let index = 0;
+    const keys = Object.keys(req.body)
+    for(key of keys){
+      if(req.body[key] == ""){
+        return res.send("Preencha os campos vazios")
+      }
+    }
+    Recipes.update(req.body, ()=>{
+      return res.redirect(`/admin/recipes/${req.body.id}`)
+    })
     return;
   },
   delete(req, res) {
-    const { id } = req.body;
-    return res.redirect("/admin/recipes");
+    
+    return 
   },
 };
