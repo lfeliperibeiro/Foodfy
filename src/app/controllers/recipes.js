@@ -34,7 +34,6 @@ module.exports = {
       
       return res.render("admin/edit", {recipe})
     })
-    return ;
   },
   put(req, res) {
     const keys = Object.keys(req.body)
@@ -46,10 +45,13 @@ module.exports = {
     Recipes.update(req.body, ()=>{
       return res.redirect(`/admin/recipes/${req.body.id}`)
     })
-    return;
+    
   },
   delete(req, res) {
+    Recipes.delete(req.body.id, ()=>{
+      return res.redirect("/admin/recipes")
+    })
     
-    return 
+    
   },
 };
