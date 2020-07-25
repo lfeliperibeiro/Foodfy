@@ -20,37 +20,44 @@
                     <input type="text" name="title" value="{{recipe.title}}">
                 </div>
 
-                <div class="form-content">
-                    <h2>Chef</h2>
-                    <input type="text" name="author" value="{{recipe.chef.name}}">
-                </div>
+                 <div class="form-content">
+                <h2>Chef</h2>
+                <select name="chef">
+                    {% for chef in chefOptions %}
+                    <option value="{{chef.id}}"{% if recipe.chef.id == chef.id%} selected {%endif%}>{{chef.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
                 <div class="form-content">
                     <h2>Imagem da receita</h2>
                     <input type="url" name="image" value="{{recipe.image}}">
                 </div>
-                <div class="form-content">
-                    <h2>Ingredientes</h2>
-                    {% for ingredient in recipe.ingredients %}
+                             
+                    
+                 <div class="form-content" id="ingredients">
+                <h2>Ingredientes</h2>
+                <div class="ingredient">
+                   {% for ingredient in recipe.ingredients %}
                         <input type="text" name="ingredients" value="{{ingredient}}">
                     {% endfor %}
                 </div>
-                <a class="add-ingredient">Adicionar novo ingrediente</a>
-                <div class="form-content">
+            </div>
+            <a class="add-ingredient">Adicionar novo ingrediente</a>
+               
+                <div class="form-content" id="prepares">
                     <h2>Modo de preparo</h2>
+                    <div class="prepare">
                     {% for preparation in recipe.preparations %}
                         <input type="text" name="preparations" value="{{preparation}}">
                     {% endfor %}
-
-                </div>
-                <a class="add-ingredient">Adicionar novo passo</a>
+                    </div>
+                 </div>
+                    <a class="add-prepare">Adicionar novo passo</a>
                 <div class="form-add">
                     <h2>Informações adicionais</h2>
-                    <textarea name="info" cols="30" rows="10">{{recipe.information}}</textarea>
-
+                    <textarea name="information" cols="30" rows="10">{{recipe.information}}</textarea>
                 </div>
-
             </form>
-
         </section>
     </div>
    <script src="/delete.js"></script>

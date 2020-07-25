@@ -57,15 +57,17 @@ module.exports = {
     title=($2),
     ingredients=($3),
     preparations=($4), 
-    information=($5)
-    WHERE id=$6`;
+    information=($5),
+    chef_id=($6)
+    WHERE id=$7`;
     const values = [
       data.image,
       data.title,
       data.ingredients,
       data.preparations,
       data.information,
-      data.id
+      data.chef,
+      data.id,
     ]
     db.query(query,values, (err, results)=>{
       if(err) throw `DataBase error ${err}`

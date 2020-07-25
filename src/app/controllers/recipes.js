@@ -8,10 +8,9 @@ module.exports = {
     });
   },
   create(req, res) {
-    Recipes.chefSelectOptions((options)=>{
-      
-      return res.render("admin/create", {chefOptions: options});
-    })
+    Recipes.chefSelectOptions((options) => {
+      return res.render("admin/create", { chefOptions: options });
+    });
   },
   post(req, res) {
     const keys = Object.keys(req.body);
@@ -32,29 +31,28 @@ module.exports = {
     });
   },
   edit(req, res) {
-    Recipes.find(req.params.id, (recipe)=>{
-      if(!recipe) return res.send("Receita não encontrada")
-      
-      return res.render("admin/edit", {recipe})
-    })
+    Recipes.find(req.params.id, (recipe) => {
+      if (!recipe) return res.send("Receita não encontrada");
+
+      Recipes.chefSelectOptions((options) => {
+        return res.render("admin/edit", { recipe, chefOptions: options });
+      });
+    });
   },
   put(req, res) {
-    const keys = Object.keys(req.body)
-    for(key of keys){
-      if(req.body[key] == ""){
-        return res.send("Preencha os campos vazios")
+    const keys = Object.keys(req.body);
+    for (key of keys) {
+      if (req.body[key] == "") {
+        return res.send("Preencha os campos vazios");
       }
     }
-    Recipes.update(req.body, ()=>{
-      return res.redirect(`/admin/recipes/${req.body.id}`)
-    })
-    
+    Recipes.update(req.body, () => {
+      return res.redirect(`/admin/recipes/${req.body.id}`);
+    });
   },
   delete(req, res) {
-    Recipes.delete(req.body.id, ()=>{
-      return res.redirect("/admin/recipes")
-    })
-    
-    
+    Recipes.delete(req.body.id, () => {
+      return res.redirect("/admin/recipes");
+    });
   },
 };
