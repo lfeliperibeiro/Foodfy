@@ -2,11 +2,11 @@ const express = require("express");
 const routes = express.Router();
 const recipes = require("./app/controllers/recipes");
 const chefs = require("./app/controllers/chefs")
-const data = require("./data.json");
 const principals = require("./app/controllers/principals")
+const data = require("./data.json");
 
 
-//  Rota das receitas do adm
+//  Rotas das receitas do adm
 
 routes.get("/admin/recipes", recipes.index);
 routes.get("/admin/recipes/create", recipes.create);
@@ -18,17 +18,18 @@ routes.post("/admin/recipes", recipes.post);
 routes.put("/admin/recipes", recipes.put);
 routes.delete("/admin/recipes", recipes.delete);
 
-// Rota dos Chefs
+// Rotas dos Chefs
 
 routes.get("/admin/chefs", chefs.index)
 routes.get("/admin/chefs/create", chefs.create)
-routes.post("/admin/chefs", chefs.post)
 routes.get("/admin/chefs/:id", chefs.show)
 routes.get("/admin/chefs/:id/edit", chefs.edit)
+
+routes.post("/admin/chefs", chefs.post)
 routes.put("/admin/chefs", chefs.put)
 routes.delete("/admin/chefs", chefs.delete)
 
-// Rota do index da Página
+// Rotas do index da Página
 
 routes.get("/", (req, res) => {
   return res.render("recipes/index", { recipes: data.recipes });
