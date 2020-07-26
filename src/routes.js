@@ -3,6 +3,7 @@ const routes = express.Router();
 const recipes = require("./app/controllers/recipes");
 const chefs = require("./app/controllers/chefs")
 const data = require("./data.json");
+const principals = require("./app/controllers/principals")
 
 
 //  Rota das receitas do adm
@@ -53,8 +54,6 @@ routes.get("/recipes/:id", (req, res) => {
   };
   return res.render("recipes/recipe", { recipe });
 });
-routes.get("/chefs", (req, res)=>{
-  return res.render("recipes/chefs")
-})
+routes.get("/chefs", principals.index )
 
 module.exports = routes;

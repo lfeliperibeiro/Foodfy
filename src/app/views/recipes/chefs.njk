@@ -9,3 +9,21 @@
     </div>
 
 {% endblock header %}
+
+{% block content %}
+    <section class="cards-chefs">
+        {% for principal  in principals %}
+            <div class="card-chef">
+                <div class="card-content">
+                    <img class="avatar-index"src="{{principal.avatar_url}}" alt="{{principal.name}}"/>                    
+                </div>
+                <div class="card-info-chef">
+                    <h1 class="chef-name-index">{{principal.name}}</h1>
+                    <p>{{principal.total_recipes}} receitas</p>
+                </div>
+            </div>
+        {% endfor %}
+
+    </section>
+
+{% endblock content %}
