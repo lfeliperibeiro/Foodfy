@@ -214,16 +214,33 @@ form {
   max-width: 940px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 20px;
   margin-top: 20px;
   margin-bottom: 50px;
 }
 
-.card {
+.cards-recipes {
+  max-width: 940px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr ;
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.card-recipe{
   display: grid;
   grid-template-columns: 38% 1fr;
   padding: 0;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  padding: 0;
+  
 }
 
 .card-content img {
@@ -352,7 +369,7 @@ li {
 /* chef */
 
 img.avatar {
-  max-width: 200px;
+  width: 200px;
   height: 200px;
   border-radius: 50%;
 }
@@ -363,7 +380,7 @@ h1.chef-name {
 }
 
 img.avatar-index {
-  max-width: 64px;
+  width: 64px;
   height: 64px;
   border-radius: 50%;
 }
