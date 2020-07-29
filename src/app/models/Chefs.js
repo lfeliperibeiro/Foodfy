@@ -56,18 +56,29 @@ module.exports = {
 
     const values = [data.avatar_url, data.name, data.id];
 
-    db.query(query, values, (err, results)=>{
-        if(err) throw `Database error ${err}`
+    db.query(query, values, (err, results) => {
+      if (err) throw `Database error ${err}`;
 
-        callback()
-    })
+      callback();
+    });
   },
-  delete(id, callback){
-      db.query(`
-      DELETE FROM chefs WHERE id = $1`, [id], (err, results)=>{
-          if(err) throw `Database error ${err}`
+  delete(id, callback) {
+    db.query(
+      `
+      DELETE FROM chefs WHERE id = $1`,
+      [id],
+      (err, results) => {
+        if (err) throw `Database error ${err}`;
 
-          callback()
-      })
-  }
+        callback();
+      }
+    );
+  },
+  chefRecipes(callback) {
+    db.query(`SELECT * FROM recipes`, (err, results) => {
+      if (err) throw `Database error ${err}`;
+
+      callback(results.rows);
+    });
+  },
 };

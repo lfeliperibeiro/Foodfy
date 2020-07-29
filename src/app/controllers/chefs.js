@@ -1,12 +1,12 @@
 const { date } = require("../../lib/utils");
 const Chefs = require("../models/Chefs");
+const { chefRecipes } = require("../models/Chefs");
 
 module.exports = {
   index(req, res) {
-      Chefs.all((chefs)=>{
-          
-          return res.render("chefs/index", {chefs});
-      })
+    Chefs.all((chefs) => {
+      return res.render("chefs/index", { chefs });
+    });
   },
   create(req, res) {
     return res.render("chefs/create");
@@ -27,7 +27,9 @@ module.exports = {
       if (!chef) return res.send("Chef não encontrado");
       chef.created_at = date(chef.created_at).format;
 
-      return res.render("./chefs/show", { chef });
+      Chefs.chefRecipes((recipe) => {
+        return res.render("./chefs/show", { chef, chefRecipes: recipe });
+      });
     });
   },
   edit(req, res) {
@@ -37,20 +39,20 @@ module.exports = {
       return res.render("chefs/edit", { chef });
     });
   },
-  put(req, res){
+  put(req, res) {
     const keys = Object.keys(req.body);
     for (key of keys) {
       if (req.body[key] == "") {
         return res.send("Por favor preencha todos os campos");
       }
     }
-    Chefs.update(req.body, ()=>{
-        return res.redirect(`./chefs/${req.body.id}`)
-    })
+    Chefs.update(req.body, () => {
+      return res.redirect(`./chefs/${req.body.id}`);
+    });
   },
-  delete(req,res){
-      Chefs.delete(req.body.id,()=>{
-          return res.redirect("./chefs")
-      })
-  }
+  delete(req, res) {
+    Chefs.delete(req.body.id, () => {
+      return res.redirect("./chefs");
+    });
+  },
 };
