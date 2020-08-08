@@ -1,6 +1,6 @@
 const { date } = require("../../lib/utils");
 const Chefs = require("../models/Chefs");
-const { chefRecipes } = require("../models/Chefs");
+
 
 module.exports = {
   index(req, res) {
