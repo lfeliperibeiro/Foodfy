@@ -27,7 +27,7 @@ module.exports = {
       if (!chef) return res.send("Chef não encontrado");
       chef.created_at = date(chef.created_at).format;
 
-      Chefs.chefRecipes((recipe) => {
+      Chefs.chefRecipes(req.params.id, (recipe) => {
         return res.render("./chefs/show", { chef, chefRecipes: recipe });
       });
     });
