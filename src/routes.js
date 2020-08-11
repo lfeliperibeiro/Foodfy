@@ -31,9 +31,8 @@ routes.delete("/admin/chefs", chefs.delete)
 
 // Rotas do index da Página
 
-routes.get("/", (req, res) => {
-  return res.render("recipes/index", { recipes: data.recipes });
-});
+routes.get("/",  principals.principal);
+
 
 routes.get("/about", (req, res) => {
   return res.render("recipes/about");

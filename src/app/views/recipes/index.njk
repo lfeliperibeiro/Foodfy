@@ -19,16 +19,16 @@
     <h2>Mais acessadas</h2>
   </div>
   <section class="cards">
-    {% for recipe in recipes %}
+    {% for principal  in principals %}
       <div class="card" id="{{recipe.id}}">
         <div class="card-content">
-          <img src="{{recipe.recipe_url}}" alt="{{recipe.name}}"/>
+          <img src="{{principal.image}}" alt="{{principal.title}}"/>
         </div>
         <div class="card-info">
-          <h1>{{recipe.name}}</h1>
+          <h1>{{principal.title}}</h1>
         </div>
         <div class="card-author">
-          <p>{{recipe.author}}</p>
+          <p></p>
         </div>
       </div>
     {% endfor %}
