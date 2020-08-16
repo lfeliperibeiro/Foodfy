@@ -2,7 +2,7 @@ const express = require("express");
 const routes = express.Router();
 const recipes = require("./app/controllers/recipes");
 const chefs = require("./app/controllers/chefs")
-const principals = require("./app/controllers/principals")
+const admin = require("./app/controllers/admin")
 const data = require("./data.json");
 
 
@@ -31,7 +31,9 @@ routes.delete("/admin/chefs", chefs.delete)
 
 // Rotas do index da Página
 
-routes.get("/",  principals.principal);
+routes.get("/",  (request, response)=>{
+  return response.render("recipes/index")
+});
 
 
 routes.get("/about", (req, res) => {
@@ -54,6 +56,6 @@ routes.get("/recipes/:id", (req, res) => {
   };
   return res.render("recipes/recipe", { recipe });
 });
-routes.get("/chefs", principals.index )
+
 
 module.exports = routes;

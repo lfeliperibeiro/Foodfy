@@ -5,11 +5,14 @@ module.exports = {
   all(callback) {
     db.query(
       `
-        SELECT * FROM recipes`,
+        SELECT recipes.id, recipes.image, recipes.title, chef.name AS chef_name
+        FROM recipes
+        INNER JOIN chefs ON (chef.id = recipes.chef_id )
+        `,
       (err, results) => {
         if (err) throw `Database error ${err}`;
 
-        callback(results.rows);
+         return callback(results.rows);
       }
     );
   },
@@ -36,17 +39,26 @@ module.exports = {
     db.query(query, values, (err, results) => {
       if (err) throw `Database Error ${err}`;
 
-      callback(results.rows[0]);
+     return  callback(results.rows[0]);
     });
   },
   find(id, callback) {
     db.query(
       `
-      SELECT * FROM recipes  WHERE id=$1`,
-      [id],
+      SELECT recipes.chef_id,
+             recipes.id,
+             recipes.image,
+             recipes.ingredients,
+             recipe.preparations,
+             recipe.information,
+             chefs.name AS author 
+        FROM recipes
+        INNER JOIN chefs ON (chefs.id = recipes.chef.id)
+        WHERE recipes.id = ${id}`
+      ,
       (err, results) => {
         if (err) throw `Database error ${err}`;
-        callback(results.rows[0]);
+        return callback(results.rows[0]);
       }
     );
   },
@@ -66,13 +78,13 @@ module.exports = {
       data.ingredients,
       data.preparations,
       data.information,
-      data.chef,
+      data.chef_id,
       data.id,
     ]
     db.query(query,values, (err, results)=>{
       if(err) throw `DataBase error ${err}`
 
-      callback()
+      return callback()
     })
   },
   delete(id, callback){
@@ -80,11 +92,11 @@ module.exports = {
     DELETE FROM recipes WHERE id=$1`, [id], (err, results)=>{
       if(err) throw `Database error ${err}`
 
-      callback()
+      return callback()
     })
   },
-  chefSelectOptions(callback){
-    db.query(`SELECT name, id FROM chefs`, (err, results)=>{
+  allChefs(callback){
+    db.query(`SELECT id, name FROM chefs`, (err, results)=>{
       if(err) throw `Database error ${err}`
       
       callback(results.rows)
