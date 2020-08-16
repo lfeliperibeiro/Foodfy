@@ -2,56 +2,57 @@ const { date } = require("../../lib/utils");
 const Recipes = require("../models/Recipes");
 
 module.exports = {
-  index(req, res) {
+  index(request, response) {
     Recipes.all((recipes) => {
-      return res.render("admin/index", { recipes });
+      return res.render("admin/recipes/index", { recipes });
     });
   },
-  create(req, res) {
-    Recipes.chefSelectOptions((options) => {
-      return res.render("admin/create", { chefOptions: options });
+  create(request, response) {
+    Recipes.allChefs((chefs) => {
+      return response.render("admin/recipes/create", { chefs });
     });
   },
-  post(req, res) {
+  post(request, response) {
     const keys = Object.keys(req.body);
     for (key of keys) {
       if (req.body[key] == "") {
         return res.send("Preencha todos os campos");
       }
     }
-    Recipes.create(req.body, (recipe) => {
-      return res.redirect(`/admin/recipes/${recipe.id}`);
+    Recipes.create(request.body, (recipes) => {
+      return res.redirect('/admin/recipes');
     });
   },
-  show(req, res) {
-    Recipes.find(req.params.id, (recipe) => {
+  show(request, response) {
+    const {id} = request.params
+    Recipes.find(id, (recipe) => {
       if (!recipe) return res.send("Receita não encontrada");
 
-      return res.render("admin/show", { recipe });
+      return response.render("admin/recipe/recipe", { recipe });
     });
   },
-  edit(req, res) {
-    Recipes.find(req.params.id, (recipe) => {
-      if (!recipe) return res.send("Receita não encontrada");
-
-      Recipes.chefSelectOptions((options) => {
-        return res.render("admin/edit", { recipe, chefOptions: options });
+  edit(request, response) {
+    const {id} = request.params
+    Recipes.allChefs((chefs) => {
+        Recipes.chefSelectOptions(id, (recipe) => {
+        return response.render("admin/recipe/edit", { recipe, chefs });
       });
     });
   },
-  put(req, res) {
+  put(request, response) {
     const keys = Object.keys(req.body);
     for (key of keys) {
       if (req.body[key] == "") {
         return res.send("Preencha os campos vazios");
       }
     }
-    Recipes.update(req.body, () => {
-      return res.redirect(`/admin/recipes/${req.body.id}`);
+    Recipes.update(request.body, () => {
+      return response.redirect('/admin/recipes');
     });
   },
-  delete(req, res) {
-    Recipes.delete(req.body.id, () => {
+  delete(request, response) {
+    const {id} = request.body
+    Recipes.delete(id, () => {
       return res.redirect("/admin/recipes");
     });
   },
