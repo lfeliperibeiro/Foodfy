@@ -4,7 +4,7 @@ const Recipes = require("../models/Recipes");
 module.exports = {
   index(request, response) {
     Recipes.all((recipes) => {
-      return res.render("admin/recipes/index", { recipes });
+      return response.render("admin/recipes/index", { recipes });
     });
   },
   create(request, response) {

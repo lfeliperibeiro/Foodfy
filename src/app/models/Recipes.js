@@ -3,13 +3,15 @@ const { date } = require("../../lib/utils");
 
 module.exports = {
   all(callback) {
-    db.query(
-      `
-        SELECT recipes.id, recipes.image, recipes.title, chef.name AS chef_name
-        FROM recipes
-        INNER JOIN chefs ON (chef.id = recipes.chef_id )
-        `,
-      (err, results) => {
+    const query = `   
+          SELECT  
+              rec.id,
+              rec.image,
+              rec.title,
+              chf.name As Chef_Name
+          FROM recipes rec
+          Inner Join chefs chf On (chf.id = rec.chef_id)`
+      db.query(query, (err, results) => {
         if (err) throw `Database error ${err}`;
 
          return callback(results.rows);

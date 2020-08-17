@@ -32,14 +32,14 @@
     <h2>Receitas</h2>
 </div>
 <section class="cards-recipes">
-    {% for recipe in chefRecipes %}
+    {% for recipe in Recipes %}
         <div class="card-recipe" id="{{chef.id}}">
             <div class="card-content">
                 <img src="{{recipe.image}}" alt="{{recipe.title}}"/>
             </div>
             <div class="card-info">
                 <h1>{{recipe.title}}</h1>
-                <p class="card-author">{{chef.name}}</p>
+                <p class="card-author">{{recipe_chef_name}}</p>
                 <a class="view-button" href="/admin/recipes/{{recipe.id}}">Visualizar</a>
             </div>
 
