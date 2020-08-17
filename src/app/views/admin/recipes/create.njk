@@ -1,0 +1,55 @@
+{% extends 'admin/layout.njk' %}
+
+{% block content %}
+
+    <section class="recipe-form">
+        <form action="/admin/recipes" method="POST">
+            <div class="recipe-title">
+                <h1>Criando Receita</h1>
+                <button type="submit">Salvar receita</button>
+            </div>
+            <div class="form-content">
+                <h2>Imagem da receita</h2>
+                <input type="url" name="image">
+            </div>
+
+            <div class="form-content">
+                <h2>Nome da receita</h2>
+                <input type="text" name="title">
+            </div>
+
+            <div class="form-content">
+                <h2>Chef</h2>
+                <select name="chef">
+                    {% for chef in chefOptions %}
+                    <option value="{{chef.id}}"{% if recipe.chef.id == chef.id%} selected {%endif%}>{{chef.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+
+            <div class="form-content" id="ingredients">
+                <h2>Ingredientes</h2>
+                <div class="ingredient">
+                    <input type="text" name="ingredients[]"  placeholder="Ingredientes"/>
+                </div>
+            </div>
+            <a class="add-ingredient">Adicionar novo ingrediente</a>
+
+        <div class="form-content" id="prepares">
+            <h2>Modo de preparo</h2>
+            <div class="prepare">
+                <input type="text" name="preparations[]"  placeholder="Preparo">
+            </div>
+        </div>
+        <a class="add-prepare">Adicionar novo passo</a>
+
+        <div class="form-add">
+            <h2>Informações adicionais</h2>
+            <textarea name="information" id="" cols="30" rows="10"></textarea>
+
+        </div>
+    </form>
+    <script src="/admin.js"></script>
+</section>
+{% endblock content %} 
