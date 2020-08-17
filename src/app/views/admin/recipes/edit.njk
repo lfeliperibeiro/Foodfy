@@ -24,7 +24,7 @@
                 <h2>Chef</h2>
                 <select name="chef">
                     {% for chef in chefOptions %}
-                    <option value="{{chef.id}}"{% if recipe.chef.id == chef.id%} selected {%endif%}>{{chef.name}}</option>
+                    <option value="{{chef.id}}"{% if recipe.chef_id == chef.id%} selected {%endif%}>{{chef.name}}</option>
                     {% endfor %}
                 </select>
             </div>
