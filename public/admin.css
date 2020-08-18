@@ -257,6 +257,11 @@ form {
   margin-left: 20px;
 }
 
+.card-info  p{
+  margin-left: 20px;
+  color: #777777
+}
+
 .card-author {
   margin: 5px 0px 10px 20px;
   font-size: 14px;

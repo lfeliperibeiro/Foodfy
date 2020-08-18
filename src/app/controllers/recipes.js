@@ -13,20 +13,20 @@ module.exports = {
     });
   },
   post(request, response) {
-    const keys = Object.keys(req.body);
+    const keys = Object.keys(request.body);
     for (key of keys) {
-      if (req.body[key] == "") {
-        return res.send("Preencha todos os campos");
+      if (request.body[key] == "") {
+        return response.send("Preencha todos os campos");
       }
     }
     Recipes.create(request.body, (recipes) => {
-      return res.redirect('/admin/recipes');
+      return response.redirect('/admin/recipes');
     });
   },
   show(request, response) {
     const {id} = request.params
     Recipes.find(id, (recipe) => {
-      if (!recipe) return res.send("Receita não encontrada");
+      if (!recipe) return response.send("Receita não encontrada");
 
       return response.render("admin/recipe/recipe", { recipe });
     });
@@ -40,10 +40,10 @@ module.exports = {
     });
   },
   put(request, response) {
-    const keys = Object.keys(req.body);
+    const keys = Object.keys(request.body);
     for (key of keys) {
-      if (req.body[key] == "") {
-        return res.send("Preencha os campos vazios");
+      if (request.body[key] == "") {
+        return response.send("Preencha os campos vazios");
       }
     }
     Recipes.update(request.body, () => {
@@ -53,7 +53,7 @@ module.exports = {
   delete(request, response) {
     const {id} = request.body
     Recipes.delete(id, () => {
-      return res.redirect("/admin/recipes");
+      return response.redirect("/admin/recipes");
     });
   },
 };
