@@ -60,6 +60,13 @@ section.recipes {
   position: relative;
 }
 
+.wellcome{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin-top: 10rem;
+}
+
 .recipe-title {
   display: grid;
   grid-template-columns: 1fr 150px;

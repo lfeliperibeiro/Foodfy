@@ -6,6 +6,8 @@ const admin = require("./app/controllers/admin")
 const data = require("./data.json");
 
 
+routes.get('/admin', admin.index)
+
 //  Rotas das receitas do adm
 
 routes.get("/admin/recipes", recipes.index);
