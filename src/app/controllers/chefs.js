@@ -3,16 +3,15 @@ const Chefs = require("../models/Chefs");
 
 
 
-module.exports = {
-  index(request, response) {
+exports.index = (request, response) => {
     Chefs.all((chefs) => {
-      return response.render("admin/chefs/index", { chefs, total_recipes:0 });
+      return response.render("admin/chefs/index", { chefs, total_recipes: 0 });
     });
   },
-  create(request, response) {
+  exports.create = (request, response) => {
     return response.render("admin/chefs/create");
   },
-  post(request, response) {
+  exports.post = (request, response) => {
     const keys = Object.keys(request.body);
     for (key of keys) {
       if (request.body[key] == "") {
@@ -23,21 +22,21 @@ module.exports = {
       return response.redirect('/admin/chefs');
     });
   },
-  show(request, response) {
+  exports.show = (request, response) => {
     const {id} = request.params
     Chefs.findRecipeByChef(id, (recipes) => {
-        Chefs.find(id, (chef) =>{
+      Chefs.find(id, (chef) =>{
         return response.render("admin/chefs/show", {chef, recipes});        
       })
     });    
   },
-  edit(request, response) {
+  exports.edit = (request, response) => {
     const {id} = request.params
     Chefs.find(id, (chef) => {
      return response.render("admin/chefs/edit", { chef });
     });
   },
-  put(request, response) {
+  exports.put = (request, response) => {
     const keys = Object.keys(request.body);
     for (key of keys) {
       if (request.body[key] == "") {
@@ -48,10 +47,10 @@ module.exports = {
       return response.redirect('/admin/chefs');
     });
   },
-  delete(request, response) {
+  exports.delete = (request, response) => {
     const {id} = request.body
     Chefs.delete(id, (chefs) => {
       return response.redirect("/admin/chefs");
     });
-  },
-};
+  }
+

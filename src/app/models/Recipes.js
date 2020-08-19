@@ -57,7 +57,7 @@ module.exports = {
              chefs.name AS author 
         FROM recipes
         INNER JOIN chefs ON (chefs.id = recipes.chef.id)
-        WHERE recipes.id = ${id}`
+        WHERE recipes.id = $1`,[id]
       ,
       (err, results) => {
         if (err) throw `Database error ${err}`;
