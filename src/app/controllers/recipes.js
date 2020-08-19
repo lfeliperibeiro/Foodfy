@@ -1,10 +1,9 @@
-const { date } = require("../../lib/utils");
 const Recipes = require("../models/Recipes");
 
 module.exports = {
   index(request, response) {
-    Recipes.all((recipes) => {
-      return response.render("admin/recipes/index", { recipes });
+    Recipes.all((Recipes) => {
+      return response.render("admin/recipes/index", { recipes: Recipes });
     });
   },
   create(request, response) {

@@ -26,8 +26,7 @@ module.exports = {
   show(request, response) {
     const {id} = request.params
     Chefs.findRecipeByChef(id, (recipes) => {
-      chef.created_at = date(chef.created_at).format;
-      Chefs.find(id, (chef)=>{
+        Chefs.find(id, (chef) =>{
         return response.render("admin/chefs/show", {chef, recipes});        
       })
     });    
