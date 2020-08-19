@@ -5,9 +5,9 @@
         <h1>Gerenciar Receitas</h1>
         <a href="/admin/recipes/create">Nova Receita</a>
     </div>
-    <section class="cards">
+    <section class="cards-recipes">
         {% for recipe in recipes %}
-            <div class="card">
+            <div class="card-recipe">
                 <div class="card-content">
                     <img src="{{recipe.image}}" alt="{{recipe.title}}"/>                    
                 </div>
