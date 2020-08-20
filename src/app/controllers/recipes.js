@@ -27,7 +27,7 @@ module.exports = {
     Recipes.find(id, (recipe) => {
       if (!recipe) return response.send("Receita não encontrada");
 
-      return response.render("admin/recipe/show", { recipe });
+      return response.render("admin/recipes/show", { recipe });
     });
   },
   edit(request, response) {

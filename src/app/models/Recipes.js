@@ -50,13 +50,14 @@ module.exports = {
       `
       SELECT recipes.chef_id,
              recipes.id,
+             recipes.title,
              recipes.image,
              recipes.ingredients,
-             recipe.preparations,
-             recipe.information,
+             recipes.preparations,
+             recipes.information,
              chefs.name AS author 
         FROM recipes
-        INNER JOIN chefs ON (chefs.id = recipes.chef.id)
+        INNER JOIN chefs ON (chefs.id = recipes.chef_id)
         WHERE recipes.id = $1`, [id]
       ,
       (err, results) => {
