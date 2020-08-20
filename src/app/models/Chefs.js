@@ -45,7 +45,7 @@ module.exports = {
       }
     );
   },
-  findRecipesByChef(id, callback){
+  findRecipesByChef(id, callback) {
     const query = `
     SELECT recipes.id,
       recipes.title,
@@ -78,7 +78,7 @@ module.exports = {
   delete(id, callback) {
     db.query(
       `
-      DELETE FROM chefs WHERE id = $1`,
+      DELETE FROM chefs WHERE id = $1`,[id],
       (err, results) => {
         if (err) throw `Database error ${err}`;
 
