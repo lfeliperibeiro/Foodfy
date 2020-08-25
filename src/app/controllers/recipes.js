@@ -33,8 +33,8 @@ module.exports = {
   edit(request, response) {
     const {id} = request.params
     Recipes.allChefs((chefs) => {
-        Recipes.chefSelectOptions(id, (recipe) => {
-        return response.render("admin/recipe/edit", { recipe, chefs });
+        Recipes.find(id, (recipe) => {
+        return response.render("admin/recipes/edit", { recipe, chefs });
       });
     });
   },
