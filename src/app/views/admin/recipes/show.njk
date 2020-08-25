@@ -8,6 +8,11 @@
 
     <section class="recipes">
         <div class="recipe" id="{{recipe.id}}">
+            <div class="recipe_edit-title">
+                <h1>Receita:{{recipe.title}} </h1>
+                <a href="/admin/recipes/{{recipe.id}}/edit">Editar Receita</a>
+             </div>
+             
             <div class="recipe-content">
                 <img src="{{recipe.image}}" alt="{{recipe.title}}"/>
             </div>
@@ -45,7 +50,7 @@
         <div class="information ">
             <p>{{recipe.information}}</p>
         </div>
-
+        
     </section>
 
 {% endblock content %}
