@@ -27,8 +27,9 @@ module.exports = {
             ingredients,
             preparations, 
             information,
-            created_at
-        ) VALUES($1,$2,$3,$4,$5,$6)
+            created_at,
+            chef_id
+        ) VALUES($1,$2,$3,$4,$5,$6, $7)
         RETURNING id`;
 
     const values = [
@@ -38,6 +39,7 @@ module.exports = {
       data.preparations,
       data.information,
       date(Date.now()).iso,
+      data.chef_id
     ];
     db.query(query, values, (err, results) => {
       if (err) throw `Database Error ${err}`;
