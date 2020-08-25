@@ -6,7 +6,8 @@
   padding: 0;
 }
 :root {
-  --primary-color: #c36c08;
+  --primary-color: #FBDFDB ;
+  --button-color: #6558C3 
 }
 
 body {
@@ -26,7 +27,7 @@ header {
 
 button.filter {
   align-self: end;
-  background-color: var(--primary-color);
+  background-color: var(--button-color);
   color: white;
   padding: 8px 16px;
   box-sizing: border-box;
@@ -76,7 +77,7 @@ header input {
 }
 
 .banner-text h1 {
-  color: #fff;
+  color: #111;
   font-size: 32px;
   margin-bottom: 10px;
 }
@@ -84,7 +85,7 @@ header input {
 .banner-text p {
   text-align: left;
   padding: 10px 90px 10px 0;
-  color: #fff;
+  color: #000000;
   font-size: 18px;
   line-height: 28px;
 }

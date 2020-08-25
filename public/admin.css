@@ -6,8 +6,8 @@
   padding: 0;
 }
 
-:root{
-  --primary-color: #c36c08;
+:root {
+  --primary-color: #6558C3 
 }
 
 body {
@@ -282,12 +282,14 @@ form {
   line-height: 28px;
   color: #111111;
   margin-left: 20px;
+  margin-bottom: 5px;
 }
 
 .card-info  p{
   margin-left: 20px;
   color: #777777;
   font-size: 14px;
+  margin-bottom: 5px;
 }
 
 .card-author {
@@ -296,12 +298,13 @@ form {
   color: #777777;
 }
 
-.view-button {
+a.view-button {
   text-decoration: none;
   color: var(--primary-color);
   font-size: 14px;
   line-height: 16px;
   margin-left: 20px;
+  
 }
 
 /* sobre */
