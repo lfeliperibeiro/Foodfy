@@ -1,4 +1,4 @@
-{% extends 'recipes/layout.njk' %}
+{% extends 'users/layout.njk' %}
 
 {% block content %}
 
@@ -19,16 +19,16 @@
     <h2>Mais acessadas</h2>
   </div>
   <section class="cards">
-    {% for principal  in principals %}
+    {% for recipe  in recipes %}
       <div class="card" id="{{recipe.id}}">
         <div class="card-content">
-          <img src="{{principal.image}}" alt="{{principal.title}}"/>
+           <img src="{{recipe.image}}" alt="{{recipe.title}}"/> 
         </div>
         <div class="card-info">
-          <h1>{{principal.title}}</h1>
+          <h1>{{recipe.title}}</h1>
         </div>
         <div class="card-author">
-          <p></p>
+          <p>por {{recipe.chef_name}}</p>
         </div>
       </div>
     {% endfor %}

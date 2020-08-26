@@ -1,4 +1,4 @@
-{% extends "recipes/layout.njk" %}
+{% extends "users/layout.njk" %}
 
 {% block header %}
     <div class="links">
@@ -12,14 +12,14 @@
 
 {% block content %}
     <section class="cards-chefs">
-        {% for principal  in principals %}
+       {% for chef in chefs %}
             <div class="card-chef">
                 <div class="card-content">
-                    <img class="avatar-index"src="{{principal.avatar_url}}" alt="{{principal.name}}"/>                    
+                    <img class="avatar-index"src="{{chef.avatar_url}}" alt="{{chef.name}}"/>                     
                 </div>
                 <div class="card-info-chef">
-                    <h1 class="chef-name-index">{{principal.name}}</h1>
-                    <p>{{principal.total_recipes}} receitas</p>
+                    <h1 class="chef-name-index">{{chef.name}}</h1>
+                     <p>{{chef.total_recipes}} receitas</p>
                 </div>
             </div>
         {% endfor %}
