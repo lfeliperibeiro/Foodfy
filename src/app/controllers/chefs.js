@@ -4,54 +4,64 @@ const Chefs = require("../models/Chefs");
 
 
 module.exports = {
-  index(request, response) {
-    Chefs.all((chefs) => {
-      return response.render("admin/chefs/index", { chefs, total_recipes: 0 });
-    });
+   async index(request, response) {
+     const chefs = (await Chefs.all()).rows
+      return response.render("admin/chefs/index", { chefs });
+    ;
   },
   create(request, response) {
     return response.render("admin/chefs/create");
   },
-  post(request, response) {
+  async post(request, response) {
     const keys = Object.keys(request.body);
     for (key of keys) {
       if (request.body[key] == "") {
         return response.send("Por favor preencha todos os campos");
       }
     }
-    Chefs.create(request.body, (chefs) => {
+
+    const data = request.body;
+    const results = await Chefs.create(data)
+    console.log(`Chef criado com ID ${results.rows[0].id}`)
+    
       return response.redirect('/admin/chefs');
-    });
+    ;
   },
-  show(request, response) {
+  async show(request, response) {
     const {id} = request.params
-    Chefs.findRecipesByChef(id, (recipes) => {
-      Chefs.find(id, (chef) =>{
-        return response.render("admin/chefs/show", {chef, recipes});        
-      })
-    });    
+    const showChef = (await Chefs.find(id)).rows[0];
+    const listRecipes = (await Chefs.findRecipesByChef(id)).rows
+    
+    return response.render("admin/chefs/show", {chef: showChef, recipes: listRecipes});        
+      
+       
   },
-  edit(request, response) {
+  async edit(request, response) {
     const {id} = request.params
-    Chefs.find(id, (chef) => {
-     return response.render("admin/chefs/edit", { chef });
-    });
+    const editChef = (await Chefs.find(id)).rows[0];
+    
+     return response.render("admin/chefs/edit", { chef: editChef });
+    
   },
-  put(request, response) {
+  async put(request, response) {
     const keys = Object.keys(request.body);
     for (key of keys) {
       if (request.body[key] == "") {
         return response.send("Por favor preencha todos os campos");
       }
     }
-    Chefs.update(request.body, (chef) => {
-      return response.redirect('/admin/chefs');
-    });
+    const data = request.body;
+    await Chefs.update(data)
+
+   
+    return response.redirect('/admin/chefs');
+   
   },
-  delete(request, response) {
+  async delete(request, response) {
     const {id} = request.body
-    Chefs.delete(id, (chefs) => {
-      return response.redirect("/admin/chefs");
-    });
+    const results = await Chefs.delete(id);    
+   
+    return response.redirect("/admin/chefs");
+   
   },
 };

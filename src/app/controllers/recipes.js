@@ -1,58 +1,68 @@
 const Recipes = require("../models/Recipes");
 
 module.exports = {
-  index(request, response) {
+  async index(request, response) {
     Recipes.all((Recipes) => {
-      return response.render("admin/recipes/index", { recipes: Recipes });
+      const indexRecipes = (await Recipes.all()).rows
+      return response.render("admin/recipes/index", { recipes: indexRecipes });
     });
   },
-  create(request, response) {
+  async create(request, response) {
+    const chefs = (await Recipes.allChefs()).rows;
     Recipes.allChefs((chefs) => {
       return response.render("admin/recipes/create", { chefs });
     });
   },
-  post(request, response) {
+  async post(request, response) {
     const keys = Object.keys(request.body);
     for (key of keys) {
       if (request.body[key] == "") {
         return response.send("Preencha todos os campos");
       }
     }
-    Recipes.create(request.body, (recipes) => {
-      return response.redirect('/admin/recipes');
-    });
+    const data = request.body;
+    const recipeId = (await Recipes.create(data)).rows[0].id;
+    console.log(`Id da receita criada ${recipeId}`)
+    
+    return response.redirect('/admin/recipes');   
   },
-  show(request, response) {
+  async show(request, response) {
+    const {id} = request.params;
+    const showRecipe = (await Recipes.find(id)).rows[0];
+   
+   return response.render("admin/recipes/show", { recipe: showRecipe });
+    
+  },
+  async edit(request, response) {
     const {id} = request.params
-    Recipes.find(id, (recipe) => {
-      if (!recipe) return response.send("Receita não encontrada");
+    const chefs = (await Recipes.allChefs()).rows;
+    const recipeFound = await Recipes.find(id)
 
-      return response.render("admin/recipes/show", { recipe });
-    });
+    const recipe = {
+      ...recipeFound,
+      chefs
+    }
+    
+        return response.render("admin/recipes/edit", { recipe });
+   
   },
-  edit(request, response) {
-    const {id} = request.params
-    Recipes.allChefs((chefs) => {
-        Recipes.find(id, (recipe) => {
-        return response.render("admin/recipes/edit", { recipe, chefs });
-      });
-    });
-  },
-  put(request, response) {
+  async put(request, response) {
     const keys = Object.keys(request.body);
     for (key of keys) {
       if (request.body[key] == "") {
         return response.send("Preencha os campos vazios");
       }
     }
-    Recipes.update(request.body, () => {
-      return response.redirect('/admin/recipes');
-    });
+    const data = request.body;
+    await Recipes.update(data);
+  
+    return response.redirect('/admin/recipes');
+   
   },
-  delete(request, response) {
+  async delete(request, response) {
     const {id} = request.body
-    Recipes.delete(id, () => {
-      return response.redirect("/admin/recipes");
-    });
-  },
+    await Recipes.delete(id)
+   
+    return response.redirect("/admin/recipes");
+  }
 };
