@@ -4,7 +4,7 @@ const recipes = require("./app/controllers/recipes");
 const chefs = require("./app/controllers/chefs")
 const admin = require("./app/controllers/admin")
 const users = require('./app/controllers/users')
-const data = require("./data.json");
+
 
 
 routes.get('/admin', admin.index)
@@ -35,17 +35,11 @@ routes.delete("/admin/chefs", chefs.delete)
 // Rotas do index da Página
 
 routes.get("/", users.index);
-
-
-routes.get("/about", (request, response) => {
-  return response.render("users/about");
-});
-
-routes.get("/recipes", users.show);
-
-routes.get("/recipes/:id", users.show_single);
-
-routes.get("/chefs", users.chef_index)
+routes.get("/recipes/search", users.search)
+routes.get("/about", users.about);
+routes.get("/recipes", users.recipes);
+routes.get("/recipes/:id", users.recipe);
+routes.get("/chefs", users.chefs)
 
 
 module.exports = routes;

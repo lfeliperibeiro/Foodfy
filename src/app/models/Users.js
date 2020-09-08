@@ -19,6 +19,23 @@ module.exports = {
       console.log(error)
     }   
   },
+  findRecipes(recipeId){
+    try {
+      const query = `SELECT rec.id,
+                            rec.title,
+                            rec.image,
+                            rec.ingredients,
+                            rec.preparations,
+                            rec.information,
+                            chefs.name AS author
+                      FROM recipes rec
+                      INNER JOIN chefs ON (chefs.id = rec.chef_id)
+                      WHERE rec.id = ${recipeId}`
+            return db.query(query) 
+    }catch(error){
+      console.log(error)
+    }
+  },
   findAllChefs() {
     try{
       const query = `SELECT chefs.id,

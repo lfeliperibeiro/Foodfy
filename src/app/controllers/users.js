@@ -1,5 +1,6 @@
 const { date } = require("../../lib/utils");
 const Users = require("../models/Users");
+const chefs = require("./chefs");
 
 
 module.exports = {
@@ -9,11 +10,17 @@ async index(request, response) {
   },
   async recipes(request, response) {
     const recipes = (await Users.all()).rows;
-    return response.render("users/recipes/recipes", {recipes})
+    return response.render("users/recipes", {recipes})
   },
   async recipe(request, response){
-    const chefs = (await Users.findAllChefs()).rows;
-    return response.render("users/Chefs/index", {chefs})
+    const {id} = request.params
+    const recipe = (await Users.findRecipes(id)).rows[0];
+    return response.render("users/recipe", {recipe})
+  },
+  async chefs(request, response) {
+    const chefs = (await Users.findAllChefs()).rows
+
+    return response.render("users/chefs", {chefs})
   },
   about(request, response){
     return response.render("users/about")

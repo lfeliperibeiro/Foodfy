@@ -2,16 +2,15 @@ const Recipes = require("../models/Recipes");
 
 module.exports = {
   async index(request, response) {
-    Recipes.all((Recipes) => {
       const indexRecipes = (await Recipes.all()).rows
       return response.render("admin/recipes/index", { recipes: indexRecipes });
-    });
+    
   },
   async create(request, response) {
     const chefs = (await Recipes.allChefs()).rows;
-    Recipes.allChefs((chefs) => {
+   
       return response.render("admin/recipes/create", { chefs });
-    });
+   
   },
   async post(request, response) {
     const keys = Object.keys(request.body);
