@@ -13,6 +13,7 @@
 body {
   font-family: "Roboto", sans-serif;
   position: relative;
+  min-height: 100vh; 
 }
 
 header {
@@ -131,12 +132,14 @@ header input {
 }
 
 footer {
+  margin-top: 100px;
   background-color: #eeeeee;
   text-align: center;
-  margin-top: 73px;
-  width: 100%;
+  width: 100%;  
   position: absolute;
-  bottom: -474px;
+  bottom: 0;
+  left: 0;
+  
 }
 
 footer p {
@@ -145,6 +148,7 @@ footer p {
   line-height: 24px;
   padding: 23px;
 }
+
 
 /* sobre */
 
@@ -219,10 +223,13 @@ footer p {
 
 /* recipe */
 
+
+
 .recipe {
   max-width: 940px;
   margin: 0 auto;
   text-align: center;
+ 
 }
 
 .recipe-content img {
@@ -284,6 +291,7 @@ li {
   color: #444444;
   font-size: 18px;
   line-height: 28px;
+  padding-bottom: 100px;
 }
 
 .preparation.show-remove,
